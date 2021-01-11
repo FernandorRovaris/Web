@@ -5,5 +5,5 @@ function rand({min =0, max = 1000}) {
 
 
 const obj = {max: 40, min: 40}
-console.log(rand(obj))
+console.log(rand(obj ))
 console.log(rand({max: 50, min: 40}))
