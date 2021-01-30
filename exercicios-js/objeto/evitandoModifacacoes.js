@@ -24,3 +24,6 @@ pessoa.sebrenome = 'Silva'
 delete pessoa.nome
 pessoa.idade = 29
 console.log(pessoa);
+
+//Object.freeze = selado + valor constantes
+
