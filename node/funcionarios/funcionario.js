@@ -1,6 +1,7 @@
 const url = 'http://files.cod3r.com.br/curso-js/funcionarios.json'
 const axios = require('axios')
 
+//forma feita na correção
 const chineses = f => f.pais === 'China'
 const mulheres = f => f.genero === 'F'
 menorSalario = (func, funcAtual) => {
@@ -13,7 +14,7 @@ axios.get(url).then(response =>{
     let auxMenor = 0
     let obj;
     
-
+    //Resultado Correção
     const func = funcionarios.filter(chineses).filter(mulheres).reduce(menorSalario)
 
 
