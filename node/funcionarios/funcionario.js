@@ -11,20 +11,20 @@ menorSalario = (func, funcAtual) => {
 
 axios.get(url).then(response =>{
     const funcionarios = response.data
-    let auxMenor = 0
-    let obj;
     
-    //Resultado Correção
-    const func = funcionarios.filter(chineses).filter(mulheres).reduce(menorSalario)
-
-
+    let auxMenor = 999999999999
+    let obj;
     for (const key in funcionarios) {
-        if (funcionarios[key].pais == 'China' && funcionarios[key].genero == 'F' && auxMenor < funcionarios[key].salario){
-            obj = funcionarios[key]
+        if (funcionarios[key].pais == 'China' && funcionarios[key].genero == 'F' && auxMenor > funcionarios[key].salario){
+           auxMenor = funcionarios[key].salario;
+           obj = funcionarios[key]
         }
     } 
-
     console.log(obj);
+
+    //Resultado Correção
+    const func = funcionarios.filter(chineses).filter(mulheres).reduce(menorSalario)
+    console.log(func);
+    
        
 })
-
