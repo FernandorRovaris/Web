@@ -21,19 +21,12 @@ const getTurma = letra => {
     })
 }
 
-/*let nomes = []
-getTurma('A').then(alunos => {
-    nomes = nomes.concat(alunos.map(a => `A: ${a.nome}`))
-    getTurma('B').then(alunos => {
-        nomes = nomes.concat(alunos.map(a => `B: ${a.nome}`))
-        getTurma('C').then(alunos => {
-            nomes = nomes.concat(alunos.map(a => `C: ${a.nome}`))
-            console.log(nomes);
-        })
-    })
-})
-*/
-Promise.all([getTurma('A'), getTurma('B'), getTurma('C')])
-    .then(turnas=> [].concat(...turnas))
-    .then(alunos=> alunos.map(aluno => aluno.nome))
-    .then(nome=> console.log(nome))
+// Recurso do ES8
+let obterAluno = async () =>{
+    const ta = await getTurma('A')
+    const tb = await getTurma('B')
+    const tc = await getTurma('C')
+    return [].concat(ta, tb, tc)
+}
+
+obterAluno().then(alunos => alunos.map(a => a.nome)).then(nomes => console.log(nomes))
