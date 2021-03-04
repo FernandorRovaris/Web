@@ -3,7 +3,7 @@ const funcionario = {
     salario: 123.45
 }
 
-const clone = {atiovo: true, ...funcionario}
+const clone = { atiovo: true, ...funcionario }
 console.log(clone);
 
 const grupoA = ['joão', 'Pedro', 'Gloeria']
