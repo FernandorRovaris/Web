@@ -11,7 +11,7 @@
         Exercicios HTML
     </header>
     <nav>
-        <a href="exercicios/teste.html">00 - Teste</a>
+        <a href wb-nav="exercicios/teste.html">00 - Teste</a>
     </nav>
     <section id="conteudo"> </section>
     <footer>
@@ -19,12 +19,12 @@
         Curso de web Moderno
     </footer>
     <script>
-        document.querySelectorAll('a').forEach(link =>{
+        document.querySelectorAll('[wb-nav]').forEach(link =>{
             const conteudo = document.getElementById('conteudo')
             
             link.onclick = (e) =>{
                 e.preventDefault()
-                fetch(link.href)
+                fetch(link.getAttribute('wb-nav'))
                     .then(resp => resp.text())
                     .then(html => conteudo.innerHTML = html)
             }
