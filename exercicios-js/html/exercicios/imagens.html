@@ -1,0 +1,123 @@
+<div mv-seila>
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg" 
+            alt="Muro da Cideda" 
+            width="513" 
+            height="342" 
+            title="Muro da Cidade por Tarso Bessa"
+            
+            >
+    </p>
+    
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem2.gif" 
+        alt="Intro cod3r"
+        height="342">
+    </p>
+    
+    <P class="circular">
+        <img src="http://files.cod3r.com.br/curso-web/imagem3.png" 
+        alt="Rio de Janeiro"
+        height="342">
+    </P>
+    
+    <P class="texto">
+        <img src="http://files.cod3r.com.br/curso-web/avatar.jpg" 
+        alt="Avatar"
+        height="50"
+       >
+       A pergunta parece ingênua, mas você sabe o que é um texto? 
+       Passamos boa parte de nossos dias lendo os mais diversos textos, 
+       interpretando-os e reagindo a eles por meio de novos textos. Desde os
+       textos mais corriqueiros, como placas de trânsito ou cumprimentos, até os 
+       mais elaborados, como as obras de arte ou tratados científicos, a 
+       humanidade lê e escreve textos. Mas, de fato, o que é um texto? 
+        
+    </P>
+    
+    <P class="cidade"></P>
+    
+    <p>
+        <picture>
+            <source srcset="http://files.cod3r.com.br/curso-web/logo-larga.png"
+                media="(min-width: 600px)">
+            <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png" alt="Logo">
+        </picture>
+    </p>
+</div>
+
+<style>
+
+    p{
+        position: absolute;
+        display: none;
+    }
+
+
+    .circular{
+        width: 513px;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .texto{
+        width: 500px; 
+    }
+
+    .texto img{
+       float: left;
+       margin-right: 10px;
+    }
+
+    .cidade{
+        width: 513px;
+        height: 342px;
+        background-image: url("http://files.cod3r.com.br/curso-web/imagem4.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 200%;
+    }
+    
+    
+</style>
+   
+<script>
+    function mover(elemento, inicio, final, movimento, callback) {
+        const novoInicio= inicio - movimento
+        if (novoInicio >= final) {
+            elemento.style.left = novoInicio + 'px'
+            setTimeout(()=>mover(elemento,novoInicio,final,movimento,callback),10)
+        } else {
+            callback()
+        }
+        
+    }
+
+    function silider (){
+        const elementos = document.querySelectorAll('[mv-seila] > p')
+        const slides = Array.from(elementos)
+        exibirSlide(slides, slides[0])
+    }
+    
+    function exibirSlide(slides, slide){
+        slide.style.display = 'block'
+
+        const inicio = innerWidth
+        const fim = - slide.clientWidth
+
+        slide.style.left = `${inicio}px`
+
+        mover(slide, inicio, fim, 5, () =>{
+          //  slide.style.display = 'none'
+            exibirSlide(slides,getProximo(slides,slide))
+        })
+
+        function getProximo(lista, atual){
+            const i = lista.indexOf(atual)+1
+            return i < lista.length ? lista[i] : lista[0] 
+        }
+ 
+    }
+
+    silider()
+
+</script>
