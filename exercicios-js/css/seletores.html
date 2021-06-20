@@ -6,7 +6,50 @@
     <title>CSS Selectors</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        /* *{
+            color: yellow;
+            background-color: #f77;
+        } */
+
+        /* .tag{
+            color: yellow;
+            background-color: #f77;
+        } */
+        /* #aprovados{
+            color: yellow;
+            background-color: #f77;
+        } */
+        /* #aninhado > div{
+            color: yellow;
+            background-color: #f77;
+        } */
+        /* #aninhado  section{
+            color: yellow;
+            background-color: #f77;
+        } */
+
+        /* p + ul{
+            color: yellow;
+            background-color: #f77;
+        } */
+        /* p ~ ol{
+            color: yellow;
+            background-color: #f77;
+        } */
+
+        /* [feira]{
+            color: yellow;
+            background-color: #f77;
+        } */
+        /* [feira = casa]{
+            color: yellow;
+            background-color: #f77;
+        } */
+        span:nth-child(1){
+            color: yellow;
+            background-color: #f77;
+        }
+
     </style>
 </head>
 
@@ -29,7 +72,7 @@
             </ol>
             <div id='aninhado' class='tag'>
                 <div class="tag">
-                    <section class='tag'>
+                    <section class='tag nolabel'>
                         <span class='tag'>1</span>
                         <p class='tag'>2</p>
                         <span class='tag'>3</span>
