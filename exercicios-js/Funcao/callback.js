@@ -9,3 +9,5 @@ fabricantes.forEach(imprimir)
 fabricantes.forEach(function(a){
     console.log(a);
 })
+
+document.querySelectorgetElementById
